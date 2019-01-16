@@ -91,16 +91,19 @@ while(inpWord!="end"):
 			x+=1
 
 		counter=1
+		flag=True
 		#Prints out the correct spelling suggestions in alphabetic and ascending order 
 		# of the edit distance.
 		for x in range(editLIMIT):
 			#Just a little extra space so the words with a different edit distance can be better seen.
 			if(len(autoCorrect[x])>0): print("")
 			for y in range(len(autoCorrect[x])):
+				flag=False
 				print(str(counter)+".",autoCorrect[x][y],"\t\t",end="")
 				counter+=1
 				#Prints 3 words on the same line to save space.
 				if(y%3 == 2 or y==(len(autoCorrect[x])-1)):
 					print("")
-		
+		if(flag):
+			print("No suggestions found.")
 	inpWord = input("\nNON-CASE SENSITVE Spell Checker (type 'end' to end)\nWord: ")
